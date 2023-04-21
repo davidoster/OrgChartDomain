@@ -12,16 +12,20 @@ namespace ConsoleApp2
                 Nodes = // each node represents the chart of choice
                 new List<KeyValuePair<string, Dictionary<string, Node2023>>>
                 {
-                    {
+                    new KeyValuePair<string, Dictionary<string, Node2023>>(
                         "PeopleCert Global",
-                        new Dictionary<string, Node2023>() 
+                        new Dictionary<string, Node2023>()
                         {
                             {
                                 "CEO",
-                                new Node2023()
+                                new Node2023() 
+                                { 
+                                   Name =  "CEO",
+                                   SubNodes = { },
+                                   Employees = { },
+                                }
                             }
-                        }
-                    }
+                        })
                 }
             };
         }
