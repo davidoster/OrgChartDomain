@@ -6,55 +6,34 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp2
 {
-    public abstract class BaseClass
+   public abstract class NodeModel<T>
     {
         public string Name { get; set; }
+        public string Description { get; set; } // details on hover - tooltip
+        public abstract List<T>? Nodes { get; set; }
+        public NodeModel() 
+        { 
+            
+        }
 
-        public List<Employee>? Employees { get; set; }
     }
 
-
-    public class Employee : BaseClass 
+    public class Node2023
     {
-        public string Title { get; set; }
-        public string ReportingTo { get; set; }        
-    
+        public string Name { get; set; }
+        public string? Title { get; set; }
+        public string? Description { get; set; }
+        public List<Node2023>? SubNodes { get; set; }
+        public List<Node2023>? Employees { get; set; }
+        public Node2023() { }
     }
 
-    public class SubDepartment : LevelX<T>
+    public class OrgChart2023 : NodeModel<KeyValuePair<string, Dictionary<string, Node2023>>>
     {
-        //List<Employee>? Employees { get; set; }
-    }
-
-    public class Department : LevelX<SubDepartment>
-    {
-        //public List<SubDepartment> SubDepartments { get; set; }
-        
-    }
-
-    public class Division: LevelX<Department> 
-    {
-        //List<Department> Departments { get; set; }
-    }
-
-    public enum LevelType
-    {
-        Division,
-        Department,
-        SubDepartment
-    }
-    public class LevelX<T>: BaseClass 
-    {
-        public string LevelName { get; set; }
-        public LevelType Type { get; set; }
-        public List<T>? SubLevel { get; set; }
-    }
-    
-
-    public class MainObject : BaseClass 
-    {
-        public List<Level> Levels { get; set; }
-        public List<BaseClass> Employees { get; set; }
-    
+        public override List<KeyValuePair<string, Dictionary<string, Node2023>>>? Nodes 
+        { 
+            get; 
+            set; 
+        }
     }
 }

@@ -6,36 +6,24 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
-            var CEO = new MainObject()
+            var orgChartPC = new OrgChart2023()
             {
-                Name = "BN",
-            };
-
-            var groupFinance = new MainObject()
-            {
-                Name = "Group Finance",
-                Levels = new List<BaseClass>()
+                Name = "PeopleCert Group",
+                Nodes = // each node represents the chart of choice
+                new List<KeyValuePair<string, Dictionary<string, Node2023>>>
                 {
-                    new MainObject()
                     {
-                        Name = "Dept1"
-                    },
-                    new MainObject()
-                    {
-                        Name = "Dept2"
-                    },
-                    new MainObject()
-                    {
-                        Name = "Dept3"
-                    },
-                    new MainObject()
-                    {
-                        Name = "Dept4"
-                    },
+                        "PeopleCert Global",
+                        new Dictionary<string, Node2023>() 
+                        {
+                            {
+                                "CEO",
+                                new Node2023()
+                            }
+                        }
+                    }
                 }
-                
-            }
+            };
         }
     }
 }
